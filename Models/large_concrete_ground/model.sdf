@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name='largeconcreteground'>
+    <pose>0 0 0 0 0 0</pose>
+    <static>1</static>
+    <link name='body'>
+       <collision name="largeconcreteground-collision">
+          <pose>0 0 0.016 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>22.938 22.954 0.016</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='largeconcreteground'>
+        <cast_shadows>1</cast_shadows>
+        <geometry>
+          <mesh>
+            <uri>model://large_concrete_ground/meshes/largeconcreteground.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
+  </model>
+</sdf>
