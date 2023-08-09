@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name='future_lamp'>
+    <pose>0 0 0 0 0 0</pose>
+    <static>1</static>
+    <link name='body'>
+      <collision name="lamp">
+        <geometry>
+          <mesh>
+            <uri>model://future_lamp/meshes/future_lamp-coll.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='lamp'>
+        <cast_shadows>1</cast_shadows>
+        <geometry>
+          <mesh>
+            <uri>model://future_lamp/meshes/future_lamp.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+
+      <visual name='screen_glass'>
+        <cast_shadows>0</cast_shadows>
+        <pose>
+          0 0 0 0 0 0
+        </pose>
+        <geometry>
+          <mesh>
+            <uri>model://future_lamp/meshes/future_lamp_emission.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/BlueGlow</name>
+          </script>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

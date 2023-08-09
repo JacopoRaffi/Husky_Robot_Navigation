@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>vr_lamp</name>
+  <version>0.0.1</version>
+  <description>SDF description for HBP lamp from the future</description>
+
+  <maintainer email="bbp-dev-neuroroboticsplatform@groupes.epfl.ch">HBP</maintainer>
+  <author email="bbp-dev-neuroroboticsplatform@groupes.epfl.ch">HBP</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>
