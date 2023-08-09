@@ -1,0 +1,4 @@
+husky_gazebo_plugins/WheelSpeeds wheel_speeds
+---
+bool success                         # return true if set successful
+string status_message                # comments if available

@@ -1,0 +1,4 @@
+geometry_msgs/Twist cmd_vel
+---
+bool success                         # return true if set successful
+string status_message                # comments if available

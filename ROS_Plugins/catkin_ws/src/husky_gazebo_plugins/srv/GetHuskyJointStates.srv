@@ -1,0 +1,4 @@
+---
+sensor_msgs/JointState joint_states
+bool success                         # return true if get successful
+string status_message                # comments if available
