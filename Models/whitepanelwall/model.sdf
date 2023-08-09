@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name='whitepanelwall'>
+    <pose>0 0 0 0 0 0</pose>
+    <static>1</static>
+    <link name='body'>
+      <collision name="whitepanelwall-coll">
+        <pose>0 0 1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2 0.4 2.0</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='whitepanelwall'>
+        <cast_shadows>1</cast_shadows>
+        <geometry>
+          <mesh>
+            <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
+  </model>
+</sdf>
