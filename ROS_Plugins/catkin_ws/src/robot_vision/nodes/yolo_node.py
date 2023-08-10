@@ -2,6 +2,7 @@
 from ultralytics import YOLO
 import rospy
 import cv2
+import time
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 import rospy
@@ -16,13 +17,14 @@ center_x = 160.
 center_y = 120.
 target_x = 0.
 target_y = 0.
-i = 0
 
 def box_extractor(image):
     global target_found, center_x, center_y, target_x, target_y
     img = bridge.imgmsg_to_cv2(image, desired_encoding='bgr8')
+    b = time.time() * 1000
     result = model.predict(img, classes=0, verbose=False)[0] 
-                                       
+    c = time.time() * 1000
+    
     box = result.boxes
     if ((box.cls.nelement() != 0) and ("person" == result.names[int(box.cls[0])])):
         coords = box.xyxy[0]
