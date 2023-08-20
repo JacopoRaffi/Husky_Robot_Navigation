@@ -35,7 +35,7 @@ lights_position = {"spotlight_0": Point(7.07424, -2.36007, light_height),
 
 person_position = [Pose(Point(7.07424, -2.36007, 0.), Quaternion(0., 0., -1, 1.)),
                    Pose(Point(6.8531, 5.64267, 0.), Quaternion(0., 0., 0, 1.)),
-                   Pose(Point(0.10288, 4.60039, 0.), Quaternion(0., 0., 1, 1.)),
+                   Pose(Point(-0.5288, 4.60039, 0.), Quaternion(0., 0., 1, 1.)),
                    Pose(Point(-0.375956, -0.074803, 0.), Quaternion(0., 0., 180, 1.)),
                    Pose(Point(-6.3055, 0.079845, 0.), Quaternion(0., 0., 1, 1.)),
                    Pose(Point(-6.35414, -5.44271, 0.), Quaternion(0., 0., 180, 1.)),
