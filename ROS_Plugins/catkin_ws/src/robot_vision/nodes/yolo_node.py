@@ -18,7 +18,6 @@ target_x = 0.
 target_y = 0.
 
 def box_extractor(image):
-    #a = time.time()*1000
     global target_found, center_x, center_y, target_x, target_y
     img = bridge.imgmsg_to_cv2(image, desired_encoding='bgr8')
     result = model.predict(img, classes=0, verbose=False, show=False)[0] 
@@ -33,9 +32,6 @@ def box_extractor(image):
         target_found = False
     
     pub.publish(Vision(target_found, center_x, center_y, target_x, target_y))
-    #b = time.time()*1000
-
-    #print(b-a)
 
 
 def v_talker():
