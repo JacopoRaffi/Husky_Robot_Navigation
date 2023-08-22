@@ -6,14 +6,19 @@ import time
 from husky_gazebo_plugins.srv import SetHuskyWheelSpeeds
 from husky_gazebo_plugins.msg import WheelSpeeds
 
-import numpy as np
+# ROS node that implements a synchronous PID controller for robot motion 
+# Our robot behaviour is organized in two core states:
+#   1- If a human is found -> move towards it
+#   2- else -> move in order to rotate and explore the 360 degree field of view in order to find the next target human
 
-Kp = 2
+# PID controller parameters
+Kp = 1.5
 Kd = 0.001
-Ki = 0.05
-threshold = 3
-speed_threshold = 50
-K_speed = 0.1
+Ki = 0.025
+
+threshold = 3.5        # acceptable error range for the robot to continue in a straight direction
+speed_threshold = 8  # maximum amount of speed generated the correction of the cruise
+K_speed = 0.1        # attenuation parameter for the speed imposed to wheels
 
 wheel_srv = rospy.ServiceProxy('/husky_model/husky/wheel_speeds_service', SetHuskyWheelSpeeds)
 
@@ -35,6 +40,7 @@ def pid(vision):
     if (vision.target_found):
         is_reset = False
         diff_x = vision.center_x - vision.target_x
+        print("DIFF: ", diff_x)
         t = time.time()
         areas = np.append(areas, diff_x * (t - prev_time))
         
@@ -47,19 +53,22 @@ def pid(vision):
         result = proportional + derivative + integral
         abs_result = abs(result)
         final_speed = abs_result
-        
+        print("RESULT: ", result)
         if (abs_result > speed_threshold):
             final_speed = speed_threshold
 
         #back_left, back_right, front_left, front_right
         w_speed = WheelSpeeds(0, 0, 0, 0)
         if (result >= threshold): #vai a sinistra
+            print("LEFT")
             w_speed.back_right_wheel = K_speed * final_speed
             w_speed.front_right_wheel = K_speed * final_speed
         elif (result <= -threshold): #vai a destra
+            print("RIGHT")
             w_speed.back_left_wheel = K_speed * final_speed
             w_speed.front_left_wheel = K_speed * final_speed
         else: #vai dritto
+            print("STRAIGHT")
             w_speed.back_left_wheel = 5
             w_speed.back_right_wheel = 5
             w_speed.front_left_wheel = 5
