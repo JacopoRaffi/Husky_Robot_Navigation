@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>husky_model</name>
+  <version>0.0.3</version>
+  <description>SDF description for HBP Husky</description>
+
+  <maintainer email="zweigle@fzi.de">Oliver Zweigle</maintainer>
+  <author email="zweigle@fzi.de">Oliver Zweigle</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>
